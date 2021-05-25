@@ -3,7 +3,7 @@ import random
 
 def anagrama(cadena, lista, n):
     largo = len(cadena)
-    if (n == largo//2 or largo == 1 or largo == 0):
+    if (n == 3 or largo == 1 or largo == 0):
         return lista
     for i in range(0, largo):
         for j in range(0, largo):
@@ -12,8 +12,10 @@ def anagrama(cadena, lista, n):
             aux = neu[i]
             neu[i] = enlistada[j]
             neu[j] = aux
-            if neu not in lista:
-                lista.append(neu)           
+            neu_str = neu
+            if neu_str not in lista:
+                lista.append(neu_str)
+                print(i, "/", j, "soluciones encontradas")     
         anagrama(lista[-1], lista, n +1)    
     return lista
 
